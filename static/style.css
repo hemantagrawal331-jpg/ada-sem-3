@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #222;
+  background: #eee;
+}
+
+header {
+  background: #2c4a6e;
+  color: #fff;
+  padding: 14px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+header p {
+  margin: 6px 0 0;
+}
+
+.sub {
+  font-size: 13px;
+}
+
+.wrap {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  align-items: flex-start;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 14px;
+}
+
+.wrap .panel:first-child {
+  width: 320px;
+}
+
+.bottom {
+  margin: 0 16px 16px;
+}
+
+h2 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin: 10px 0 4px;
+}
+
+input, select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #aaa;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background: #fff;
+}
+
+button {
+  margin-top: 12px;
+  background: #2c4a6e;
+  color: #fff;
+  border: 1px solid #2c4a6e;
+  padding: 7px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.gray {
+  background: #5c5c5c;
+  border-color: #5c5c5c;
+}
+
+button:hover {
+  opacity: 0.92;
+}
+
+.note {
+  color: #444;
+  line-height: 1.45;
+}
+
+#message {
+  min-height: 18px;
+  font-weight: bold;
+}
+
+.gate {
+  border: 1px dashed #777;
+  text-align: center;
+  padding: 6px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  color: #444;
+  width: 496px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(4, 118px);
+  gap: 8px;
+}
+
+.slot {
+  border: 1px solid #bbb;
+  background: #eef6ee;
+  min-height: 78px;
+  padding: 6px 8px;
+}
+
+.slot.occupied {
+  background: #f8ecec;
+}
+
+.slot .sid {
+  font-weight: bold;
+}
+
+.slot .meta {
+  color: #444;
+  margin-top: 2px;
+}
+
+.slot .st {
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.free {
+  color: #1d6b32;
+}
+
+.busy {
+  color: #9d2c2c;
+}
+
+.slot .vno {
+  font-size: 12px;
+  margin-top: 2px;
+  word-break: break-all;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+th {
+  background: #e6e6e6;
+}
+
+tr.picked td {
+  background: #e4efd6;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .wrap {
+    display: block;
+  }
+
+  .wrap .panel:first-child {
+    width: auto;
+    margin-bottom: 16px;
+  }
+
+  .gate {
+    width: 100%;
+  }
+
+  #grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

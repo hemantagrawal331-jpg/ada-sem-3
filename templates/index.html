@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Parking Space Allocator</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Parking Space Allocator</h1>
+    <p>Hemant Agrawal - 25293916039 &nbsp;&nbsp; Anubhav - 25293916018</p>
+    <p class="sub">Min Heap / Priority Queue, Greedy, Hashing, Sorting</p>
+  </header>
+
+  <div class="wrap">
+    <div class="panel">
+      <h2>Vehicle entry</h2>
+      <form id="entryForm">
+        <label for="vehicleNumber">Vehicle number</label>
+        <input id="vehicleNumber" type="text" maxlength="15" placeholder="KA05AB1234">
+
+        <label for="vehicleType">Vehicle type</label>
+        <select id="vehicleType">
+          <option value="car">Car</option>
+          <option value="bike">Bike</option>
+          <option value="ev">Electric</option>
+        </select>
+
+        <label for="priority">Priority</label>
+        <select id="priority">
+          <option value="normal">Normal</option>
+          <option value="disabled">Disabled</option>
+          <option value="premium">Premium</option>
+        </select>
+
+        <button type="submit">Allocate slot</button>
+      </form>
+
+      <p class="note">
+        Score = distance from the gate.<br>
+        +20 if a disabled driver does not get a disabled bay.<br>
+        +6 if an electric vehicle does not get a charging bay.<br>
+        +6 if a premium driver does not get a premium bay.<br>
+        The min heap picks the lowest score.
+      </p>
+      <p class="note">Disabled, EV, premium and bike bays are reserved. Other cars use a normal bay.</p>
+
+      <p id="message"></p>
+
+      <h2>Vehicle exit</h2>
+      <form id="exitForm">
+        <label for="exitNumber">Vehicle number</label>
+        <input id="exitNumber" type="text" maxlength="15">
+        <button type="submit" class="gray">Free the slot</button>
+      </form>
+
+      <h2>Find vehicle</h2>
+      <p class="note">Find and exit use the hash table (vehicle number to slot).</p>
+      <form id="findForm">
+        <label for="findNumber">Vehicle number</label>
+        <input id="findNumber" type="text" maxlength="15">
+        <button type="submit" class="gray">Find</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Parking lot</h2>
+      <p class="note">dist is the distance from the gate. It is not the same as the row order.</p>
+      <div class="gate">GATE</div>
+      <div id="grid"></div>
+      <p id="counts" class="note"></p>
+    </div>
+  </div>
+
+  <div id="comparePanel" class="panel bottom hidden"></div>
+
+  <div class="panel bottom">
+    <h2>All slots by distance</h2>
+    <p class="note">This order comes from insertion sort. The grid above stays in row order.</p>
+    <table>
+      <tr>
+        <th>Slot</th>
+        <th>Type</th>
+        <th>Distance</th>
+        <th>Status</th>
+        <th>Vehicle</th>
+      </tr>
+      <tbody id="sortedBody"></tbody>
+    </table>
+  </div>
+
+  <div class="panel bottom">
+    <h2>Parked vehicles</h2>
+    <table>
+      <tr>
+        <th>Vehicle</th>
+        <th>Slot</th>
+        <th>Type</th>
+        <th>Priority</th>
+      </tr>
+      <tbody id="parkedBody"></tbody>
+    </table>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
